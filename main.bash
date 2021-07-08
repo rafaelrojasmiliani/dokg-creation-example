@@ -2,10 +2,16 @@
 
 
 check_deps(){
+    declare -a unresolved_packages
     for package in $(rosdep keys $1); do 
-        rosdep resolve $p  >/dev/null 2>&1; 
+        if ! rosdep resolve $p  >/dev/null 2>&1; then
+            unresolved_packages+=($p)
+        else
+            echo rospack find $p
+        fi
     done
 }
+
 main(){
 
     scriptdir=$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)
@@ -13,6 +19,17 @@ main(){
         echo "this script must be executed from $scriptdir".
         exit 1
     fi
+
+    catkin build || exit 1
+
+    source devel/setup.bash
+
+    declare -a extra_dep_array
+    while read p; do
+        echo "$p"
+    done <./desired_packages.txt
+
+
 
     if [ -f "./rosdep.yaml" ]; then
         sudo bash -c "echo \"yaml file://$(realpath rosdep.yaml)\" > /etc/ros/rosdep/sources.list.d/10-my-local.list"

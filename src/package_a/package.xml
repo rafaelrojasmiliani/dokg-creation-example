@@ -19,6 +19,7 @@
   <exec_depend>roscpp</exec_depend>
   <exec_depend>rospy</exec_depend>
   <depend>package_b</depend>
+  <depend>package_d</depend>
 
 
   <export>

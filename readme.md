@@ -1,4 +1,15 @@
 
+
+# Problem
+
+This repo is test bed for solving the following problem
+
+Given a ROS project, with several package. It is required to generate the binary deb pacakges
+of a given subset of packages.
+
+The motiviation is to avoid share important code.
+
+
 In this quick tutorial I want to show you how to generate a deb package from
 scratch that will install a binary executable in the target system.
 
