@@ -18,7 +18,7 @@
   <exec_depend>Eigen3</exec_depend>
   <exec_depend>roscpp</exec_depend>
   <exec_depend>rospy</exec_depend>
-  <depend>package_a</depend>
+  <depend>package_b</depend>
 
 
   <export>

@@ -150,3 +150,6 @@ my_ros_pacakge:
             apt:
                 packages: [libgsl, vim]
 ```
+
+- `rosdep resolve [pacakge_name]` 
+- `rosdep keys <stacks-and-packages>` list the rosdep keys that the packages depend on
