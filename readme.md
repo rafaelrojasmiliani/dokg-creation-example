@@ -2,37 +2,22 @@
 
 # Problem
 
-This repo is test bed for solving the following problem
+This repo is test bed for solving the following problem:
 
-Given a ROS project, with several package. It is required to generate the binary deb pacakges
+Given a ROS project, with several packages, it is required to generate the binary deb pacakges
 of a given subset of packages.
 
 The motiviation is to avoid share important code.
 
 
-In this quick tutorial I want to show you how to generate a deb package from
-scratch that will install a binary executable in the target system.
-
-To do this with a ROS package see [here](https://gist.github.com/awesomebytes/196eab972a94dd8fcdd69adfe3bd1152) and [here](https://bloom.readthedocs.io/en/0.5.10/) and [here](https://github.com/carlosmccosta/ros_development_tools/blob/master/catkin/create_deb_files_for_ros_packages.md)
-
 # Introduction
 
-A `.deb` file is an `ar` archive that contains data. 
+A `.deb` file is an [`ar` file](https://en.wikipedia.org/wiki/Ar_(Unix)) that contains folders and file in the same way a `.zip` does.
 
-Internally, a deb package contains a collection of folders that mimics a
-typical Linux file system, such as /usr, /usr/bin, /opt and so on. A file put
-in one of those directories will be copied to the same location in the actual
-file system during installation.
+The `.deb` packages contain a collection of folders that mimics a typical Linux file system, such as `/usr`, `/usr/bin`, `/opt` and so on. 
+A file put in one of those directories will be copied to the same location in the actual file system during installation.
 
-
-# Anatomy of a deb package
-
-The most important one is the control file, which stores the
-information about the deb package and the program it installs.
-
-## Control File 
-
-On the outside instead, all deb package files follow a specific naming
+All deb packages files follow a specific naming
 convention:
 ```
 <name>_<version>-<revision>_<architecture>.deb
@@ -164,3 +149,9 @@ my_ros_pacakge:
 
 - `rosdep resolve [pacakge_name]` 
 - `rosdep keys <stacks-and-packages>` list the rosdep keys that the packages depend on
+
+
+# References
+
+
+To do this with a ROS package see [here](https://gist.github.com/awesomebytes/196eab972a94dd8fcdd69adfe3bd1152) and [here](https://bloom.readthedocs.io/en/0.5.10/) and [here](https://github.com/carlosmccosta/ros_development_tools/blob/master/catkin/create_deb_files_for_ros_packages.md)

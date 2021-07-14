@@ -2,11 +2,3 @@
 Eigen3:
   ubuntu:
     apt: [libeigen3-dev]
-
-package_a:
-  ubuntu:
-    apt: [my-package-a]
-
-package_b:
-  ubuntu:
-    apt: [my-package-b]
